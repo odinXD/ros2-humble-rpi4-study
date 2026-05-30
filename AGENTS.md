@@ -28,7 +28,7 @@ Preferred workflow:
 4. Pull changes on the Raspberry Pi.
 5. Run `colcon build --symlink-install` on the Raspberry Pi.
 6. Run ROS 2 commands on the Raspberry Pi.
-7. Record results in `notes/`.
+7. Record verified Raspberry Pi results in `notes/`.
 
 ## Repository Policy
 
@@ -60,9 +60,11 @@ Each topic note should include:
 - 사용한 명령어
 - 실행 결과 요약
 - 에러 및 해결
-- 회의/보고용 요약
+- 보고용 요약
 
 Do not copy official documentation directly. Summarize concepts in a project-oriented style.
+
+Do not manage meeting logs or meeting note files in this repository.
 
 ## Git Commit Style
 
@@ -89,10 +91,15 @@ Completed:
 - `~/ros2_ws` workspace creation
 - Git initialization
 - README and `.gitignore` commits
+- GitHub remote repository connection
+- Initial project push to GitHub
+- `scripts/check_env.sh` creation
+- `scripts/build.sh` creation
+- `notes/00_environment_setup.md` creation
 
 Next steps:
 
-1. Create setup and meeting notes.
-2. Connect GitHub remote repository.
-3. Start ROS 2 CLI tutorials: nodes, topics, services, parameters, actions.
-4. Create simple C++ and Python ROS 2 packages.
+1. Start ROS 2 CLI tutorials: nodes, topics, services, parameters, actions.
+2. Create simple C++ and Python ROS 2 packages.
+3. Run build and runtime tests on the Raspberry Pi 4B.
+4. Record verified Raspberry Pi results in `notes/`.
