@@ -161,6 +161,7 @@ Git에 포함할 항목:
 
 * `src/`
 * `notes/`
+* `archive/`
 * `scripts/`
 * `README.md`
 * `AGENTS.md`
@@ -172,11 +173,13 @@ Git에 포함하지 않을 항목:
 * `build/`
 * `install/`
 * `log/`
+* `logs/`
 * cache 파일
 * 임시 파일
 * OS 또는 에디터 자동 생성 파일
 
 `build/`, `install/`, `log/`는 colcon 빌드 결과물이므로 수정하거나 커밋하지 않는다.
+`logs/`는 원본 터미널 출력처럼 부피가 큰 로컬 기록을 임시 보관하는 위치이므로 커밋하지 않는다.
 
 ---
 
@@ -202,6 +205,9 @@ Git에 포함하지 않을 항목:
 * `notes/00_environment_setup.md` 작성
 * `scripts/check_env.sh` 작성
 * `scripts/build.sh` 작성
+* Nodes / Topics CLI 실습
+* `/talker`에서 `/chatter` topic 발행 확인
+* `/listener`에서 `/chatter` topic 구독 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -278,6 +284,12 @@ Git에 포함하지 않을 항목:
 * 실습 결과는 실제 Raspberry Pi에서 확인한 결과만 적는다.
 * 추측이 필요한 내용은 추측이라고 명시한다.
 
+`notes/progress.md`에는 현재 완료한 실습, Raspberry Pi에서 검증된 결과, 다음 작업을 간단히 기록한다.
+Codex는 다음 작업을 시작할 때 이 파일을 먼저 확인한다.
+
+상세한 실습 순서와 의미 있는 터미널 출력은 `archive/`에 날짜별 실습 일지로 기록한다.
+원본 터미널 출력 전체를 보관해야 할 때는 Git에 포함되지 않는 `logs/`를 사용한다.
+
 ---
 
 ## 10. 발표 및 보고 준비 규칙
@@ -346,9 +358,11 @@ Codex는 작업 전 다음을 확인한다.
 
 1. `AGENTS.md`
 2. `README.md`
-3. 관련 notes
-4. 관련 scripts
-5. `src/` 구조
+3. `notes/progress.md`
+4. 관련 notes
+5. 관련 archive
+6. 관련 scripts
+7. `src/` 구조
 
 Codex는 파일 수정 전 가능하면 먼저 계획을 제시한다.
 
@@ -403,26 +417,26 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. ROS 2 Nodes / Topics 공식 튜토리얼 실습
-2. `ros2 node list`, `ros2 topic list`, `ros2 topic echo`, `ros2 topic info`, `ros2 topic hz` 실습
-3. `notes/01_nodes_topics.md` 작성
+1. Services 공식 튜토리얼 실습
+2. `ros2 service list`, `ros2 service list -t`, `ros2 service type`, `ros2 interface show`, `ros2 service call` 실습
+3. `notes/02_services.md` 작성
 4. Git commit / push
-5. Services 튜토리얼로 이동
+5. Parameters 튜토리얼로 이동
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
-ros2 run demo_nodes_cpp talker
+ros2 run demo_nodes_cpp add_two_ints_server
 ```
 
 다른 터미널에서:
 
 ```bash
-ros2 node list
-ros2 topic list
-ros2 topic echo /chatter
-ros2 topic info /chatter
-ros2 topic hz /chatter
+ros2 service list
+ros2 service list -t
+ros2 service type /add_two_ints
+ros2 interface show example_interfaces/srv/AddTwoInts
+ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 7, b: 5}"
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
@@ -445,6 +459,12 @@ Windows와 Raspberry Pi 사이의 동기화, 백업, 포트폴리오 관리
 
 notes:
 학습 내용과 실습 결과 정리
+
+archive:
+상세한 실습 순서와 의미 있는 터미널 출력 기록
+
+logs:
+Git에 포함하지 않는 원본 터미널 출력 임시 보관
 
 README:
 외부에 보여줄 프로젝트 소개
