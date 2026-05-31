@@ -208,6 +208,8 @@ Git에 포함하지 않을 항목:
 * Nodes / Topics CLI 실습
 * `/talker`에서 `/chatter` topic 발행 확인
 * `/listener`에서 `/chatter` topic 구독 확인
+* Services CLI 실습
+* `/add_two_ints` service 요청 및 응답 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -417,26 +419,26 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Services 공식 튜토리얼 실습
-2. `ros2 service list`, `ros2 service list -t`, `ros2 service type`, `ros2 interface show`, `ros2 service call` 실습
-3. `notes/02_services.md` 작성
+1. Parameters 공식 튜토리얼 실습
+2. `turtlesim` 패키지 설치 여부 확인
+3. `ros2 param list`, `ros2 param get`, `ros2 param set`, `ros2 param dump` 실습
 4. Git commit / push
-5. Parameters 튜토리얼로 이동
+5. Actions 튜토리얼로 이동
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
-ros2 run demo_nodes_cpp add_two_ints_server
+ros2 pkg executables turtlesim
+ros2 run turtlesim turtlesim_node
 ```
 
 다른 터미널에서:
 
 ```bash
-ros2 service list
-ros2 service list -t
-ros2 service type /add_two_ints
-ros2 interface show example_interfaces/srv/AddTwoInts
-ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 7, b: 5}"
+ros2 param list
+ros2 param get /turtlesim background_g
+ros2 param set /turtlesim background_r 150
+ros2 param dump /turtlesim
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
