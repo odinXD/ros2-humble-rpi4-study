@@ -217,6 +217,9 @@ Git에 포함하지 않을 항목:
 * `/turtle1/rotate_absolute` action goal, feedback, result 확인
 * Launching nodes CLI 실습
 * `turtlesim/multisim.launch.py`로 두 개의 namespaced node 실행 확인
+* CMake 기반 `cpp_practice` package 생성
+* Raspberry Pi에서 `cpp_practice` package 빌드 성공
+* `ros2 run cpp_practice hello_node` 실행 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -426,31 +429,31 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. ROS 2 package 생성 학습
-2. `src/` 디렉터리 확인 또는 생성
-3. CMake 기반 연습 package 생성
-4. package 구조 확인
-5. Raspberry Pi에서 `./scripts/build.sh` 실행
-6. workspace 환경 source 후 생성된 node 실행
+1. C++ publisher 작성
+2. `cpp_practice` package에 `rclcpp`, `std_msgs` 의존성 추가
+3. `hello_node.cpp`를 ROS 2 publisher node로 변경
+4. Raspberry Pi에서 `./scripts/build.sh` 실행
+5. publisher node 실행
+6. `ros2 topic echo`, `ros2 topic info`, `ros2 topic hz`로 발행 결과 확인
 7. Git commit / push
-8. C++ publisher/subscriber 작성으로 이동
+8. C++ subscriber 작성으로 이동
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
-
-```bash
-cd ~/ros2_ws
-mkdir -p src
-cd src
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name hello_node cpp_practice
-```
-
-다른 터미널에서:
 
 ```bash
 cd ~/ros2_ws
 ./scripts/build.sh
 source install/setup.bash
 ros2 run cpp_practice hello_node
+```
+
+다른 터미널에서:
+
+```bash
+ros2 topic list -t
+ros2 topic echo /topic
+ros2 topic info /topic
+ros2 topic hz /topic
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.

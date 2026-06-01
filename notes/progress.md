@@ -6,7 +6,9 @@ ROS 2 CLI 기초 실습을 진행하고 있다.
 
 ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 
-다음 단계는 첫 ROS 2 package 생성과 Raspberry Pi 빌드 검증이다.
+첫 ROS 2 CMake package 생성과 Raspberry Pi 빌드 검증을 완료했다.
+
+다음 단계는 `cpp_practice` package에 실제 C++ publisher node를 작성하는 실습이다.
 
 ## 완료한 실습
 
@@ -25,6 +27,9 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `/turtle1/rotate_absolute` action goal, feedback, result 확인
 - ROS 2 Launching nodes CLI 실습
 - `turtlesim/multisim.launch.py`로 두 개의 namespaced node 실행 확인
+- CMake 기반 `cpp_practice` package 생성
+- Raspberry Pi에서 `cpp_practice` package 빌드 성공
+- `ros2 run cpp_practice hello_node` 실행 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -34,7 +39,7 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - Workspace: `/home/doyeong/ros2_ws`
 - `ros2` 명령 정상 인식
 - `colcon` 명령 정상 인식
-- 현재 사용자 작성 패키지는 없으므로 빌드 결과는 `0 packages finished`
+- 초기 workspace 빌드 결과: `0 packages finished`
 - 실행 node: `/talker`, `/listener`
 - Topic: `/chatter`
 - Message Type: `std_msgs/msg/String`
@@ -60,15 +65,20 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - Launch File: `turtlesim/multisim.launch.py`
 - Launched Node: `/turtlesim1/turtlesim`
 - Launched Node: `/turtlesim2/turtlesim`
+- Package: `cpp_practice`
+- Build Type: `ament_cmake`
+- Executable: `hello_node`
+- Raspberry Pi Build Result: `1 package finished`
+- Runtime Output: `hello world cpp_practice package`
 
 ## 다음 작업
 
-1. ROS 2 package 생성 실습
-2. `~/ros2_ws/src` 디렉터리 확인 또는 생성
-3. CMake 기반 `cpp_practice` package와 `hello_node` 생성
+1. C++ publisher node 작성
+2. `cpp_practice`에 `rclcpp`, `std_msgs` 의존성 추가
+3. `hello_node.cpp`를 실제 ROS 2 publisher node로 변경
 4. Raspberry Pi에서 `./scripts/build.sh` 실행
-5. workspace 환경 source 후 `hello_node` 실행
-6. package 구조와 빌드 결과 기록
+5. publisher node 실행 후 topic 발행 결과 확인
+6. C++ subscriber node 작성으로 이동
 
 ## 관련 문서
 
@@ -78,8 +88,10 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `notes/03_parameters.md`
 - `notes/04_actions.md`
 - `notes/05_launching_nodes.md`
+- `notes/06_cpp_package.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
 - `archive/2026-06-01_actions_lab.md`
 - `archive/2026-06-01_launching_nodes_lab.md`
+- `archive/2026-06-01_cpp_package_lab.md`
