@@ -4,7 +4,7 @@
 
 ROS 2 CLI 기초 실습을 진행하고 있다.
 
-Nodes, Topics, Services 실습을 완료했으며, 다음 단계는 Parameters 실습이다.
+Nodes, Topics, Services, Parameters 실습을 완료했으며, 다음 단계는 Actions 실습이다.
 
 ## 완료한 실습
 
@@ -16,6 +16,9 @@ Nodes, Topics, Services 실습을 완료했으며, 다음 단계는 Parameters �
 - `demo_nodes_cpp`의 `talker`와 `listener` 연결 확인
 - ROS 2 Services CLI 실습
 - `demo_nodes_cpp`의 `add_two_ints_server` 요청 및 응답 확인
+- ROS 2 Parameters CLI 실습
+- SSH 환경에서 `QT_QPA_PLATFORM=offscreen`으로 `/turtlesim` 실행
+- `/turtlesim`의 parameter 목록, 조회, 변경, dump 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -37,19 +40,26 @@ Nodes, Topics, Services 실습을 완료했으며, 다음 단계는 Parameters �
 - Service Type: `example_interfaces/srv/AddTwoInts`
 - Request: `a=7`, `b=5`
 - Response: `sum=12`
+- Turtlesim Package: 설치 확인
+- Headless Node: `/turtlesim`
+- Parameter: `background_g=86`
+- Parameter 변경: `background_r=150`
+- Parameter 복원: `background_r=69`
 
 ## 다음 작업
 
-1. Parameters CLI 실습
-2. `turtlesim` 패키지 설치 여부 확인
-3. `/turtlesim` node 실행
-4. parameter 목록, 조회, 변경, dump 확인
-5. `notes/03_parameters.md` 작성
+1. Actions CLI 실습
+2. SSH 환경에서 `/turtlesim`을 headless 모드로 실행
+3. action 목록, 타입, 정보, 인터페이스 확인
+4. `/turtle1/rotate_absolute` action에 goal을 보내고 feedback과 result 확인
+5. `notes/04_actions.md` 작성
 
 ## 관련 문서
 
 - `notes/00_environment_setup.md`
 - `notes/01_nodes_topics.md`
 - `notes/02_services.md`
+- `notes/03_parameters.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
+- `archive/2026-06-01_parameters_lab.md`
