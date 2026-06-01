@@ -213,6 +213,8 @@ Git에 포함하지 않을 항목:
 * Parameters CLI 실습
 * SSH 환경에서 `QT_QPA_PLATFORM=offscreen`을 사용한 `/turtlesim` headless 실행 확인
 * `/turtlesim`의 `background_r` parameter 조회, 변경, dump 확인
+* Actions CLI 실습
+* `/turtle1/rotate_absolute` action goal, feedback, result 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -422,26 +424,24 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Actions 공식 튜토리얼 실습
-2. SSH 환경에서 `/turtlesim`을 headless 모드로 실행
-3. `ros2 action list`, `ros2 action list -t`, `ros2 action info`, `ros2 interface show`, `ros2 action send_goal` 실습
-4. Git commit / push
-5. Launch files 학습으로 이동
+1. Launching nodes 공식 튜토리얼 실습
+2. SSH 환경에서 `turtlesim` launch file을 headless 모드로 실행
+3. `ros2 launch turtlesim multisim.launch.py` 실행 결과 확인
+4. 실행된 node 목록 확인
+5. 필요하면 topic 발행으로 namespaced turtlesim node 동작 확인
+6. Git commit / push
+7. colcon workspace와 package 생성 학습으로 이동
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
-QT_QPA_PLATFORM=offscreen ros2 run turtlesim turtlesim_node
+QT_QPA_PLATFORM=offscreen ros2 launch turtlesim multisim.launch.py
 ```
 
 다른 터미널에서:
 
 ```bash
-ros2 action list
-ros2 action list -t
-ros2 action info /turtle1/rotate_absolute
-ros2 interface show turtlesim/action/RotateAbsolute
-ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}" --feedback
+ros2 node list
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
