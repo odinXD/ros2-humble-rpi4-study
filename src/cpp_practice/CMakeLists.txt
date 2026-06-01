@@ -15,12 +15,18 @@ find_package(std_msgs REQUIRED)
 
 add_executable(hello_node src/hello_node.cpp)
 ament_target_dependencies(hello_node rclcpp std_msgs)
+
+add_executable(listener_node src/listener_node.cpp)
+ament_target_dependencies(listener_node rclcpp std_msgs)
+
 target_include_directories(hello_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(hello_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-install(TARGETS hello_node
+install(TARGETS 
+  hello_node
+  listener_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
