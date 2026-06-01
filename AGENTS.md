@@ -224,6 +224,8 @@ Git에 포함하지 않을 항목:
 * `/hello_publisher`에서 `/practice_chatter` topic 발행 확인
 * C++ `listener_node` subscriber 작성
 * `/hello_subscriber`에서 `/practice_chatter` topic 수신 확인
+* `ament_python` 기반 `py_practice` package 생성
+* Python `/py_hello_publisher`에서 `/py_practice_chatter` topic 발행 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -305,6 +307,8 @@ Codex는 다음 작업을 시작할 때 이 파일을 먼저 확인한다.
 
 상세한 실습 순서와 의미 있는 터미널 출력은 `archive/`에 날짜별 실습 일지로 기록한다.
 원본 터미널 출력 전체를 보관해야 할 때는 Git에 포함되지 않는 `logs/`를 사용한다.
+단순 오타나 일회성 입력 실수는 기록하지 않는다.
+다시 발생할 수 있는 환경 문제, 설정 오류, 구조적 원인과 해결 방법만 기록한다.
 
 ---
 
@@ -433,20 +437,20 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Python package 생성
-2. `ament_python` 기반 `py_practice` package 생성
-3. Python publisher node 작성
-4. Python subscriber node 작성
-5. Raspberry Pi에서 `./scripts/build.sh` 실행
-6. publisher와 subscriber node를 각각 실행
-7. topic 연결 상태 확인
-8. Git commit / push
+1. Python subscriber 작성
+2. `py_practice` package에 subscriber source 추가
+3. `setup.py`에 subscriber console script 추가
+4. Raspberry Pi에서 `./scripts/build.sh` 실행
+5. Python publisher와 subscriber node를 각각 실행
+6. subscriber 수신 로그와 topic 연결 상태 확인
+7. Git commit / push
+8. C++ service/client 작성으로 이동
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
 cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_python --license Apache-2.0 py_practice
+ros2 pkg create --build-type ament_python --license Apache-2.0 py_practice --dependencies rclpy std_msgs
 ```
 
 다른 터미널에서:
@@ -455,6 +459,7 @@ ros2 pkg create --build-type ament_python --license Apache-2.0 py_practice
 cd ~/ros2_ws
 ./scripts/build.sh
 source install/setup.bash
+ros2 run py_practice publisher_node
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.

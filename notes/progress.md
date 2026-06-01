@@ -12,7 +12,9 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 
 C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료했다.
 
-다음 단계는 Python publisher/subscriber package 작성이다.
+`ament_python` 기반 `py_practice` package 생성과 Python publisher 검증을 완료했다.
+
+다음 단계는 Python subscriber node 작성이다.
 
 ## 완료한 실습
 
@@ -38,6 +40,8 @@ C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료
 - `/hello_publisher`에서 `/practice_chatter` topic 발행 확인
 - C++ `listener_node` subscriber 작성
 - `/hello_subscriber`에서 `/practice_chatter` topic 수신 확인
+- `ament_python` 기반 `py_practice` package 생성
+- Python `/py_hello_publisher`에서 `/py_practice_chatter` topic 발행 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -91,15 +95,25 @@ C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료
 - Topic Publisher Count: `1`
 - Topic Subscription Count: `1`
 - Subscriber Message: `I heard: 'Hello from cpp_practice: <count>'`
+- Python Package: `py_practice`
+- Python Build Type: `ament_python`
+- Python Publisher Executable: `publisher_node`
+- Python Publisher Node: `/py_hello_publisher`
+- Python Publisher Topic: `/py_practice_chatter`
+- Python Message Type: `std_msgs/msg/String`
+- Python Publisher Count: `1`
+- Python Subscription Count: `0`
+- Python Publisher Rate: 약 `1 Hz`
+- Python Publisher Message: `Hello from py_practice: <count>`
 
 ## 다음 작업
 
-1. Python package 생성
-2. `ament_python` 기반 `py_practice` package 생성
-3. Python publisher node 작성
-4. Python subscriber node 작성
-5. Raspberry Pi에서 `./scripts/build.sh` 실행
-6. Python node 통신 결과 확인
+1. Python subscriber node 작성
+2. `py_practice`에 subscriber source 추가
+3. `setup.py`에 subscriber console script 추가
+4. Raspberry Pi에서 `./scripts/build.sh` 실행
+5. Python publisher와 subscriber를 각각 실행
+6. subscriber 수신 로그와 topic 연결 상태 확인
 
 ## 관련 문서
 
@@ -112,6 +126,7 @@ C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료
 - `notes/06_cpp_package.md`
 - `notes/07_cpp_publisher.md`
 - `notes/08_cpp_subscriber.md`
+- `notes/09_py_package_publisher.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -120,3 +135,4 @@ C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료
 - `archive/2026-06-01_cpp_package_lab.md`
 - `archive/2026-06-01_cpp_publisher_lab.md`
 - `archive/2026-06-01_cpp_subscriber_lab.md`
+- `archive/2026-06-01_py_package_publisher_lab.md`
