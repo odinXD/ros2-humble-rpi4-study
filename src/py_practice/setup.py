@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'publisher_node = py_practice.publisher_node:main',
+            'subscriber_node = py_practice.subscriber_node:main',
         ],
     },
 )
