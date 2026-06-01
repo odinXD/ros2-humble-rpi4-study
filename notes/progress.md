@@ -10,7 +10,9 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 
 `cpp_practice` package의 C++ publisher node 작성과 Raspberry Pi 검증을 완료했다.
 
-다음 단계는 같은 topic을 구독하는 C++ subscriber node 작성이다.
+C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료했다.
+
+다음 단계는 Python publisher/subscriber package 작성이다.
 
 ## 완료한 실습
 
@@ -34,6 +36,8 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `ros2 run cpp_practice hello_node` 실행 확인
 - `hello_node`를 `rclcpp` 기반 C++ publisher node로 확장
 - `/hello_publisher`에서 `/practice_chatter` topic 발행 확인
+- C++ `listener_node` subscriber 작성
+- `/hello_subscriber`에서 `/practice_chatter` topic 수신 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -81,15 +85,21 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - Publisher Subscription Count: `0`
 - Publisher Rate: 약 `1 Hz`
 - Publisher Message: `Hello from cpp_practice: <count>`
+- Subscriber Executable: `listener_node`
+- Subscriber Node: `/hello_subscriber`
+- Subscriber Topic: `/practice_chatter`
+- Topic Publisher Count: `1`
+- Topic Subscription Count: `1`
+- Subscriber Message: `I heard: 'Hello from cpp_practice: <count>'`
 
 ## 다음 작업
 
-1. C++ subscriber node 작성
-2. `cpp_practice`에 subscriber source 추가
-3. `CMakeLists.txt`에 subscriber 실행 파일 설정 추가
-4. Raspberry Pi에서 `./scripts/build.sh` 실행
-5. publisher와 subscriber를 각각 실행
-6. subscriber 수신 로그와 topic 연결 상태 확인
+1. Python package 생성
+2. `ament_python` 기반 `py_practice` package 생성
+3. Python publisher node 작성
+4. Python subscriber node 작성
+5. Raspberry Pi에서 `./scripts/build.sh` 실행
+6. Python node 통신 결과 확인
 
 ## 관련 문서
 
@@ -101,6 +111,7 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `notes/05_launching_nodes.md`
 - `notes/06_cpp_package.md`
 - `notes/07_cpp_publisher.md`
+- `notes/08_cpp_subscriber.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -108,3 +119,4 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `archive/2026-06-01_launching_nodes_lab.md`
 - `archive/2026-06-01_cpp_package_lab.md`
 - `archive/2026-06-01_cpp_publisher_lab.md`
+- `archive/2026-06-01_cpp_subscriber_lab.md`

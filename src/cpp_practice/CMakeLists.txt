@@ -24,7 +24,7 @@ target_include_directories(hello_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(hello_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-install(TARGETS 
+install(TARGETS
   hello_node
   listener_node
   DESTINATION lib/${PROJECT_NAME})
