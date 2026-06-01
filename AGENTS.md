@@ -227,6 +227,8 @@ Git에 포함하지 않을 항목:
 * `ament_python` 기반 `py_practice` package 생성
 * Python `/py_hello_publisher`에서 `/py_practice_chatter` topic 발행 확인
 * Python `/py_hello_subscriber`에서 `/py_practice_chatter` topic 수신 확인
+* C++ `cpp_srvcli` package 생성
+* `/cpp_add_two_ints` service server와 client 요청 및 응답 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -438,8 +440,8 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. C++ service/client 작성
-2. `ament_cmake` 기반 `cpp_srvcli` package 생성
+1. Python service/client 작성
+2. `ament_python` 기반 `py_srvcli` package 생성
 3. `example_interfaces/srv/AddTwoInts` 기반 service server 작성
 4. service client 작성
 5. Raspberry Pi에서 package 빌드
@@ -451,7 +453,7 @@ Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
 cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_srvcli --dependencies rclcpp example_interfaces
+ros2 pkg create --build-type ament_python --license Apache-2.0 py_srvcli --dependencies rclpy example_interfaces
 ```
 
 다른 터미널에서:

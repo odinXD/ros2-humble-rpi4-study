@@ -16,7 +16,9 @@ C++ publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료
 
 Python publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완료했다.
 
-다음 단계는 C++ service/client 작성이다.
+C++ service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료했다.
+
+다음 단계는 Python service/client 작성이다.
 
 ## 완료한 실습
 
@@ -45,6 +47,8 @@ Python publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완
 - `ament_python` 기반 `py_practice` package 생성
 - Python `/py_hello_publisher`에서 `/py_practice_chatter` topic 발행 확인
 - Python `/py_hello_subscriber`에서 `/py_practice_chatter` topic 수신 확인
+- C++ `cpp_srvcli` package 생성
+- `/cpp_add_two_ints` service server와 client 요청 및 응답 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -114,11 +118,20 @@ Python publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완
 - Python Topic Publisher Count: `1`
 - Python Topic Subscription Count: `1`
 - Python Subscriber Message: `I heard: 'Hello from py_practice: <count>'`
+- C++ Service Package: `cpp_srvcli`
+- C++ Service Server Node: `/cpp_add_two_ints_server`
+- C++ Service Client Node: `/cpp_add_two_ints_client`
+- C++ Service: `/cpp_add_two_ints`
+- C++ Service Type: `example_interfaces/srv/AddTwoInts`
+- CLI Request: `a=10`, `b=20`
+- CLI Response: `sum=30`
+- C++ Client Request: `a=7`, `b=8`
+- C++ Client Response: `sum=15`
 
 ## 다음 작업
 
-1. C++ service/client package 생성
-2. `ament_cmake` 기반 `cpp_srvcli` package 생성
+1. Python service/client package 생성
+2. `ament_python` 기반 `py_srvcli` package 생성
 3. `AddTwoInts` service server 작성
 4. `AddTwoInts` client 작성
 5. Raspberry Pi에서 package 빌드
@@ -137,6 +150,7 @@ Python publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완
 - `notes/08_cpp_subscriber.md`
 - `notes/09_py_package_publisher.md`
 - `notes/10_py_subscriber.md`
+- `notes/11_cpp_service_client.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -147,3 +161,4 @@ Python publisher와 subscriber node 작성 및 Raspberry Pi 통신 검증을 완
 - `archive/2026-06-01_cpp_subscriber_lab.md`
 - `archive/2026-06-01_py_package_publisher_lab.md`
 - `archive/2026-06-01_py_subscriber_lab.md`
+- `archive/2026-06-01_cpp_service_client_lab.md`
