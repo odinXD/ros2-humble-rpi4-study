@@ -4,6 +4,7 @@
 *.bash text eol=lf
 *.cpp text eol=lf
 *.hpp text eol=lf
+*.py text eol=lf
 *.xml text eol=lf
 CMakeLists.txt text eol=lf
 *.md text eol=lf

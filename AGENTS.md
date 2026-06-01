@@ -226,6 +226,7 @@ Git에 포함하지 않을 항목:
 * `/hello_subscriber`에서 `/practice_chatter` topic 수신 확인
 * `ament_python` 기반 `py_practice` package 생성
 * Python `/py_hello_publisher`에서 `/py_practice_chatter` topic 발행 확인
+* Python `/py_hello_subscriber`에서 `/py_practice_chatter` topic 수신 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -437,20 +438,20 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Python subscriber 작성
-2. `py_practice` package에 subscriber source 추가
-3. `setup.py`에 subscriber console script 추가
-4. Raspberry Pi에서 `./scripts/build.sh` 실행
-5. Python publisher와 subscriber node를 각각 실행
-6. subscriber 수신 로그와 topic 연결 상태 확인
-7. Git commit / push
-8. C++ service/client 작성으로 이동
+1. C++ service/client 작성
+2. `ament_cmake` 기반 `cpp_srvcli` package 생성
+3. `example_interfaces/srv/AddTwoInts` 기반 service server 작성
+4. service client 작성
+5. Raspberry Pi에서 package 빌드
+6. server와 client를 각각 실행
+7. 요청값과 응답 결과 확인
+8. Git commit / push
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
 cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_python --license Apache-2.0 py_practice --dependencies rclpy std_msgs
+ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_srvcli --dependencies rclcpp example_interfaces
 ```
 
 다른 터미널에서:
@@ -459,7 +460,6 @@ ros2 pkg create --build-type ament_python --license Apache-2.0 py_practice --dep
 cd ~/ros2_ws
 ./scripts/build.sh
 source install/setup.bash
-ros2 run py_practice publisher_node
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
