@@ -8,7 +8,9 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 
 첫 ROS 2 CMake package 생성과 Raspberry Pi 빌드 검증을 완료했다.
 
-다음 단계는 `cpp_practice` package에 실제 C++ publisher node를 작성하는 실습이다.
+`cpp_practice` package의 C++ publisher node 작성과 Raspberry Pi 검증을 완료했다.
+
+다음 단계는 같은 topic을 구독하는 C++ subscriber node 작성이다.
 
 ## 완료한 실습
 
@@ -30,6 +32,8 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - CMake 기반 `cpp_practice` package 생성
 - Raspberry Pi에서 `cpp_practice` package 빌드 성공
 - `ros2 run cpp_practice hello_node` 실행 확인
+- `hello_node`를 `rclcpp` 기반 C++ publisher node로 확장
+- `/hello_publisher`에서 `/practice_chatter` topic 발행 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -70,15 +74,22 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - Executable: `hello_node`
 - Raspberry Pi Build Result: `1 package finished`
 - Runtime Output: `hello world cpp_practice package`
+- Publisher Node: `/hello_publisher`
+- Publisher Topic: `/practice_chatter`
+- Publisher Message Type: `std_msgs/msg/String`
+- Publisher Count: `1`
+- Publisher Subscription Count: `0`
+- Publisher Rate: 약 `1 Hz`
+- Publisher Message: `Hello from cpp_practice: <count>`
 
 ## 다음 작업
 
-1. C++ publisher node 작성
-2. `cpp_practice`에 `rclcpp`, `std_msgs` 의존성 추가
-3. `hello_node.cpp`를 실제 ROS 2 publisher node로 변경
+1. C++ subscriber node 작성
+2. `cpp_practice`에 subscriber source 추가
+3. `CMakeLists.txt`에 subscriber 실행 파일 설정 추가
 4. Raspberry Pi에서 `./scripts/build.sh` 실행
-5. publisher node 실행 후 topic 발행 결과 확인
-6. C++ subscriber node 작성으로 이동
+5. publisher와 subscriber를 각각 실행
+6. subscriber 수신 로그와 topic 연결 상태 확인
 
 ## 관련 문서
 
@@ -89,9 +100,11 @@ ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
 - `notes/04_actions.md`
 - `notes/05_launching_nodes.md`
 - `notes/06_cpp_package.md`
+- `notes/07_cpp_publisher.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
 - `archive/2026-06-01_actions_lab.md`
 - `archive/2026-06-01_launching_nodes_lab.md`
 - `archive/2026-06-01_cpp_package_lab.md`
+- `archive/2026-06-01_cpp_publisher_lab.md`
