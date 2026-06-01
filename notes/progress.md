@@ -4,7 +4,9 @@
 
 ROS 2 CLI 기초 실습을 진행하고 있다.
 
-Nodes, Topics, Services, Parameters, Actions 실습을 완료했으며, 다음 단계는 Launching nodes 실습이다.
+ROS 2 CLI 기초 실습과 Launching nodes 실습을 완료했다.
+
+다음 단계는 첫 ROS 2 package 생성과 Raspberry Pi 빌드 검증이다.
 
 ## 완료한 실습
 
@@ -21,6 +23,8 @@ Nodes, Topics, Services, Parameters, Actions 실습을 완료했으며, 다음 �
 - `/turtlesim`의 parameter 목록, 조회, 변경, dump 확인
 - ROS 2 Actions CLI 실습
 - `/turtle1/rotate_absolute` action goal, feedback, result 확인
+- ROS 2 Launching nodes CLI 실습
+- `turtlesim/multisim.launch.py`로 두 개의 namespaced node 실행 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -53,14 +57,18 @@ Nodes, Topics, Services, Parameters, Actions 실습을 완료했으며, 다음 �
 - Goal: `theta=1.57`
 - Result: `delta=-1.5520000457763672`
 - Goal Status: `SUCCEEDED`
+- Launch File: `turtlesim/multisim.launch.py`
+- Launched Node: `/turtlesim1/turtlesim`
+- Launched Node: `/turtlesim2/turtlesim`
 
 ## 다음 작업
 
-1. Launching nodes CLI 실습
-2. SSH 환경에서 `turtlesim` launch file을 headless 모드로 실행
-3. `ros2 launch turtlesim multisim.launch.py` 실행 결과 확인
-4. 실행된 node 목록 확인
-5. `notes/05_launching_nodes.md` 작성
+1. ROS 2 package 생성 실습
+2. `~/ros2_ws/src` 디렉터리 확인 또는 생성
+3. CMake 기반 `cpp_practice` package와 `hello_node` 생성
+4. Raspberry Pi에서 `./scripts/build.sh` 실행
+5. workspace 환경 source 후 `hello_node` 실행
+6. package 구조와 빌드 결과 기록
 
 ## 관련 문서
 
@@ -69,7 +77,9 @@ Nodes, Topics, Services, Parameters, Actions 실습을 완료했으며, 다음 �
 - `notes/02_services.md`
 - `notes/03_parameters.md`
 - `notes/04_actions.md`
+- `notes/05_launching_nodes.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
 - `archive/2026-06-01_actions_lab.md`
+- `archive/2026-06-01_launching_nodes_lab.md`
