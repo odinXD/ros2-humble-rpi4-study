@@ -26,7 +26,9 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 
 `AddThreeInts` custom service를 사용하는 Python server/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료했다.
 
-다음 단계는 여러 node를 한 번에 실행하는 간단한 bringup launch 구조를 구성하는 실습이다.
+`study_bringup` package와 Python launch file을 작성하고, Raspberry Pi에서 custom message publisher/subscriber 동시 실행을 검증했다.
+
+다음 단계는 현재까지의 실습을 README에 요약하고 Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트의 방향을 정하는 것이다.
 
 ## 완료한 실습
 
@@ -67,6 +69,8 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - Python `/study_status_subscriber`에서 `/study_status` topic 수신 확인
 - `py_srvcli`에 `study_interfaces` 의존성 추가
 - Python `/py_add_three_ints` custom service server와 client 요청 및 응답 확인
+- `study_bringup` package 생성
+- `status_bringup_launch.py`로 custom message publisher/subscriber 동시 실행 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -177,16 +181,18 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - Custom Service CLI Response: `sum=60`
 - Custom Service Python Client Request: `a=7`, `b=8`, `c=9`
 - Custom Service Python Client Response: `sum=24`
-- Latest Raspberry Pi Build Result: `5 packages finished`
+- Bringup Package: `study_bringup`
+- Launch File: `status_bringup_launch.py`
+- Launch Command: `ros2 launch study_bringup status_bringup_launch.py`
+- Launched Node: `/study_status_publisher`
+- Launched Node: `/study_status_subscriber`
+- Latest Raspberry Pi Build Result: `6 packages finished`
 
 ## 다음 작업
 
-1. 간단한 bringup package 생성
-2. Python launch file 작성
-3. Custom message publisher/subscriber를 한 번에 실행
-4. Raspberry Pi에서 package 빌드
-5. `ros2 launch`로 node 실행
-6. `/study_status` topic 연결 확인
+1. README에 현재까지의 학습 결과 요약
+2. Package 구성과 실행 방법 정리
+3. Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트 후보 결정
 
 ## 관련 문서
 
@@ -206,6 +212,7 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - `notes/13_custom_interfaces.md`
 - `notes/14_custom_message_pubsub.md`
 - `notes/15_custom_service_client.md`
+- `notes/16_bringup_launch.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -221,3 +228,4 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - `archive/2026-06-02_custom_interfaces_lab.md`
 - `archive/2026-06-02_custom_message_pubsub_lab.md`
 - `archive/2026-06-02_custom_service_client_lab.md`
+- `archive/2026-06-02_bringup_launch_lab.md`
