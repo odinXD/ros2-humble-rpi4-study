@@ -20,7 +20,9 @@ C++ service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료했�
 
 Python service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료했다.
 
-다음 단계는 custom msg/srv interface package 작성이다.
+Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료했다.
+
+다음 단계는 `StudyStatus` custom message를 실제 publisher/subscriber에서 사용하는 실습이다.
 
 ## 완료한 실습
 
@@ -53,6 +55,9 @@ Python service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료�
 - `/cpp_add_two_ints` service server와 client 요청 및 응답 확인
 - Python `py_srvcli` package 생성
 - `/py_add_two_ints` service server와 client 요청 및 응답 확인
+- `study_interfaces` package 생성
+- Custom `StudyStatus.msg`, `AddThreeInts.srv` 생성
+- Raspberry Pi에서 custom interface 빌드 및 조회 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -140,16 +145,19 @@ Python service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료�
 - Python CLI Response: `sum=70`
 - Python Client Request: `a=9`, `b=6`
 - Python Client Response: `sum=15`
+- Interface Package: `study_interfaces`
+- Custom Message: `study_interfaces/msg/StudyStatus`
+- Custom Service: `study_interfaces/srv/AddThreeInts`
+- Raspberry Pi Build Result: `5 packages finished`
 
 ## 다음 작업
 
-1. Custom interface package 생성
-2. `ament_cmake` 기반 `study_interfaces` package 생성
-3. `msg/StudyStatus.msg` 정의
-4. `srv/AddThreeInts.srv` 정의
-5. Interface 생성 설정 추가
-6. Raspberry Pi에서 package 빌드
-7. `ros2 interface show`로 생성 결과 확인
+1. Custom message publisher/subscriber 작성
+2. `py_practice`에 `study_interfaces` 의존성 추가
+3. `StudyStatus` publisher 작성
+4. `StudyStatus` subscriber 작성
+5. Raspberry Pi에서 package 빌드
+6. `/study_status` topic 메시지 전달 확인
 
 ## 관련 문서
 
@@ -166,6 +174,7 @@ Python service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료�
 - `notes/10_py_subscriber.md`
 - `notes/11_cpp_service_client.md`
 - `notes/12_py_service_client.md`
+- `notes/13_custom_interfaces.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -178,3 +187,4 @@ Python service/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료�
 - `archive/2026-06-01_py_subscriber_lab.md`
 - `archive/2026-06-01_cpp_service_client_lab.md`
 - `archive/2026-06-01_py_service_client_lab.md`
+- `archive/2026-06-02_custom_interfaces_lab.md`

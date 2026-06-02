@@ -231,6 +231,8 @@ Git에 포함하지 않을 항목:
 * `/cpp_add_two_ints` service server와 client 요청 및 응답 확인
 * Python `py_srvcli` package 생성
 * `/py_add_two_ints` service server와 client 요청 및 응답 확인
+* `study_interfaces` package 생성
+* Custom `StudyStatus.msg`, `AddThreeInts.srv` 생성 및 interface 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -442,28 +444,27 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Custom msg/srv interface package 생성
-2. `ament_cmake` 기반 `study_interfaces` package 생성
-3. `msg/StudyStatus.msg` 정의
-4. `srv/AddThreeInts.srv` 정의
-5. `CMakeLists.txt`, `package.xml`에 interface 생성 설정 추가
-6. Raspberry Pi에서 package 빌드
-7. `ros2 interface show`로 생성 결과 확인
+1. Custom `StudyStatus` message 사용
+2. `py_practice` package에 `study_interfaces` 의존성 추가
+3. Custom message publisher 작성
+4. Custom message subscriber 작성
+5. Raspberry Pi에서 package 빌드
+6. publisher와 subscriber 실행
+7. `/study_status` topic 연결과 메시지 내용 확인
 8. Git commit / push
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
 
 ```bash
-cd ~/ros2_ws/src
-ros2 pkg create --build-type ament_cmake --license Apache-2.0 study_interfaces
+cd ~/ros2_ws
+./scripts/build.sh
+source install/setup.bash
 ```
 
 다른 터미널에서:
 
 ```bash
-cd ~/ros2_ws
-./scripts/build.sh
-source install/setup.bash
+ros2 interface show study_interfaces/msg/StudyStatus
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
