@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'server = py_srvcli.add_two_ints_server:main',
             'client = py_srvcli.add_two_ints_client:main',
+            'three_ints_server = py_srvcli.add_three_ints_server:main',
+            'three_ints_client = py_srvcli.add_three_ints_client:main',
         ],
     },
 )
