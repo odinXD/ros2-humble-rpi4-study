@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'publisher_node = py_practice.publisher_node:main',
             'subscriber_node = py_practice.subscriber_node:main',
+            'status_publisher = py_practice.status_publisher:main',
+            'status_subscriber = py_practice.status_subscriber:main',
         ],
     },
 )
