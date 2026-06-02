@@ -240,6 +240,7 @@ Git에 포함하지 않을 항목:
 * Python `/py_add_three_ints` custom service server와 client 요청 및 응답 확인
 * `study_bringup` package 생성
 * `status_bringup_launch.py`로 custom message publisher/subscriber 동시 실행 확인
+* README에 package 구성, Raspberry Pi 검증 결과, 실행 방법 정리
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -451,9 +452,9 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. README에 현재까지의 학습 결과 요약
-2. Package 구성과 실행 방법 정리
-3. Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트 후보 결정
+1. Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트 후보 결정
+2. 필요한 하드웨어와 package 구조 정리
+3. 첫 번째 응용 node의 역할 정의
 4. Git commit / push
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.

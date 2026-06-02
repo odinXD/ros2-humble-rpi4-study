@@ -28,7 +28,9 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 
 `study_bringup` package와 Python launch file을 작성하고, Raspberry Pi에서 custom message publisher/subscriber 동시 실행을 검증했다.
 
-다음 단계는 현재까지의 실습을 README에 요약하고 Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트의 방향을 정하는 것이다.
+현재까지의 package 구성, Raspberry Pi 검증 결과, 실행 방법을 README에 요약했다.
+
+다음 단계는 Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트의 방향을 정하는 것이다.
 
 ## 완료한 실습
 
@@ -190,9 +192,9 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 
 ## 다음 작업
 
-1. README에 현재까지의 학습 결과 요약
-2. Package 구성과 실행 방법 정리
-3. Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트 후보 결정
+1. Raspberry Pi 기반 간단한 ROS 2 응용 프로젝트 후보 결정
+2. 필요한 하드웨어와 package 구조 정리
+3. 첫 번째 응용 node의 역할 정의
 
 ## 관련 문서
 
