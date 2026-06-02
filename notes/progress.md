@@ -24,7 +24,9 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 
 `StudyStatus` custom message를 사용하는 Python publisher/subscriber 작성과 Raspberry Pi 통신 검증을 완료했다.
 
-다음 단계는 `AddThreeInts` custom service를 실제 server/client에서 사용하는 실습이다.
+`AddThreeInts` custom service를 사용하는 Python server/client 작성과 Raspberry Pi 요청 및 응답 검증을 완료했다.
+
+다음 단계는 여러 node를 한 번에 실행하는 간단한 bringup launch 구조를 구성하는 실습이다.
 
 ## 완료한 실습
 
@@ -63,6 +65,8 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - `py_practice`에 `study_interfaces` 의존성 추가
 - Python `/study_status_publisher`에서 `/study_status` topic 발행 확인
 - Python `/study_status_subscriber`에서 `/study_status` topic 수신 확인
+- `py_srvcli`에 `study_interfaces` 의존성 추가
+- Python `/py_add_three_ints` custom service server와 client 요청 및 응답 확인
 
 ## Raspberry Pi 검증 결과
 
@@ -163,16 +167,26 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - Custom Message Publisher Count: `1`
 - Custom Message Subscription Count: `1`
 - Custom Message Sample: `learner=doyeong`, `topic=custom_interfaces`, `progress=100`, `completed=true`
+- Custom Service Server Executable: `three_ints_server`
+- Custom Service Server Node: `/py_add_three_ints_server`
+- Custom Service Client Executable: `three_ints_client`
+- Custom Service Client Node: `/py_add_three_ints_client`
+- Custom Service Name: `/py_add_three_ints`
+- Custom Service Type: `study_interfaces/srv/AddThreeInts`
+- Custom Service CLI Request: `a=10`, `b=20`, `c=30`
+- Custom Service CLI Response: `sum=60`
+- Custom Service Python Client Request: `a=7`, `b=8`, `c=9`
+- Custom Service Python Client Response: `sum=24`
 - Latest Raspberry Pi Build Result: `5 packages finished`
 
 ## 다음 작업
 
-1. Custom `AddThreeInts` service 사용
-2. Custom service server 작성
-3. Custom service client 작성
+1. 간단한 bringup package 생성
+2. Python launch file 작성
+3. Custom message publisher/subscriber를 한 번에 실행
 4. Raspberry Pi에서 package 빌드
-5. server와 client 실행
-6. 세 정수의 요청과 합계 응답 확인
+5. `ros2 launch`로 node 실행
+6. `/study_status` topic 연결 확인
 
 ## 관련 문서
 
@@ -191,6 +205,7 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - `notes/12_py_service_client.md`
 - `notes/13_custom_interfaces.md`
 - `notes/14_custom_message_pubsub.md`
+- `notes/15_custom_service_client.md`
 - `archive/2026-06-01_nodes_topics_lab.md`
 - `archive/2026-06-01_services_lab.md`
 - `archive/2026-06-01_parameters_lab.md`
@@ -205,3 +220,4 @@ Custom msg/srv interface package 생성과 Raspberry Pi 빌드 검증을 완료�
 - `archive/2026-06-01_py_service_client_lab.md`
 - `archive/2026-06-02_custom_interfaces_lab.md`
 - `archive/2026-06-02_custom_message_pubsub_lab.md`
+- `archive/2026-06-02_custom_service_client_lab.md`

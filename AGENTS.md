@@ -236,6 +236,8 @@ Git에 포함하지 않을 항목:
 * `py_practice` package에 `study_interfaces` 의존성 추가
 * Python `/study_status_publisher`에서 `/study_status` custom message 발행 확인
 * Python `/study_status_subscriber`에서 `/study_status` custom message 수신 확인
+* `py_srvcli` package에 `study_interfaces` 의존성 추가
+* Python `/py_add_three_ints` custom service server와 client 요청 및 응답 확인
 
 회의 로그 파일은 이 저장소에서 관리하지 않는다.
 회의 자료나 발표 자료는 별도 위치에서 관리할 수 있으며, 이 저장소에는 ROS 2 학습과 실습에 직접 관련된 내용만 남긴다.
@@ -447,12 +449,12 @@ chore: add line ending rules
 
 현재 다음으로 진행할 작업은 다음과 같다.
 
-1. Custom `AddThreeInts` service 사용
-2. Custom service server 작성
-3. Custom service client 작성
+1. 간단한 bringup package 생성
+2. Python launch file 작성
+3. Custom message publisher/subscriber를 한 번에 실행
 4. Raspberry Pi에서 package 빌드
-5. server와 client 실행
-6. 세 정수의 요청과 합계 응답 확인
+5. `ros2 launch`로 node 실행
+6. `/study_status` topic 연결 확인
 7. Git commit / push
 
 Raspberry Pi에서 사용할 기본 실습 명령어 예시는 다음과 같다.
@@ -466,7 +468,7 @@ source install/setup.bash
 다른 터미널에서:
 
 ```bash
-ros2 interface show study_interfaces/srv/AddThreeInts
+ros2 topic info /study_status
 ```
 
 실행 결과를 바탕으로 notes를 작성한다.
